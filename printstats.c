@@ -74,7 +74,6 @@ float stdDev(float *arr, int n, float mean) {
 }
 
 float med(float *arr, int n) {
-    sort(arr, n);
     if (n % 2 == 0) {
         return (arr[n / 2 - 1] + arr[n / 2]) / 2;
     } else {
@@ -83,23 +82,11 @@ float med(float *arr, int n) {
 }
 
 float get_min(float *arr, int n) {
-    float min = arr[0];
-    for (int i = 1; i < n; i++) {
-        if (arr[i] < min) {
-            min = arr[i];
-        }
-    }
-    return min;
+    return arr[0];
 }
 
 float get_max(float *arr, int n) {
-    float max = arr[0];
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > max) {
-            max = arr[i];
-        }
-    }
-    return max;
+    return arr[n-1];
 }
 
 void printFloat(int fd, float num) {
@@ -132,6 +119,7 @@ int main(int argc, char *argv[]) {
     }
     
     int n = argc - 1;
+    sort(numbers, n);
     float avg = av(numbers, n);
     float stddev = stdDev(numbers, n, avg);
     float median = med(numbers, n);
