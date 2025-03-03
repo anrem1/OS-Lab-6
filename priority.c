@@ -9,7 +9,7 @@ int
 main(int argc, char *argv[])
 {
     if (argc < 2) {
-        printf(1, "Usage: priority_test <new_priority>\n");
+        printf(1, "Need one priority \n");
         exit();
     }
 
@@ -25,14 +25,12 @@ main(int argc, char *argv[])
 
     printf(1, "Process %d: Current priority = %d\n", pid, old_priority);
 
-    // Set new priority
     new_priority = atoi(argv[1]);
     if (setpriority(pid, new_priority) < 0) {
         printf(1, "Failed to set new priority for PID %d\n", pid);
         exit();
     }
 
-    // Verify new priority
     int confirmed_priority = getpriority(pid);
     if (confirmed_priority == -1) {
         printf(1, "Failed to get updated priority for PID %d\n", pid);
