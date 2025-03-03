@@ -184,6 +184,7 @@ UPROGS=\
 	_bubble\
 	_printstats\
 	_save\
+	_priority\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
