@@ -96,6 +96,36 @@ atoi(const char *s)
   return sign*n;
 }
 
+float 
+atof(const char* s) {
+  float integer = 0;
+  float fraction = 0;
+  float power = 1;
+  int sign = 1;
+  int i = 0;
+  
+  if (s[0] == '-') {
+      sign = -1;
+      i++;
+  }
+  
+  while (s[i] != '\0' && s[i] != '.') {
+      integer = integer * 10 + (s[i] - '0');
+      i++;
+  }
+  
+  if (s[i] == '.') {
+      i++;
+      while (s[i] != '\0') {
+          fraction = fraction * 10 + (s[i] - '0');
+          power *= 10;
+          i++;
+      }
+  }
+  
+  return sign * (integer + fraction / power);
+}
+
 void*
 memmove(void *vdst, const void *vsrc, int n)
 {

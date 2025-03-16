@@ -2,34 +2,34 @@
 #include "stat.h"
 #include "user.h"
 
-float atof(const char* s) {
-    float integer = 0;
-    float fraction = 0;
-    float power = 1;
-    int sign = 1;
-    int i = 0;
+// float atof(const char* s) {
+//     float integer = 0;
+//     float fraction = 0;
+//     float power = 1;
+//     int sign = 1;
+//     int i = 0;
     
-    if (s[0] == '-') {
-        sign = -1;
-        i++;
-    }
+//     if (s[0] == '-') {
+//         sign = -1;
+//         i++;
+//     }
     
-    while (s[i] != '\0' && s[i] != '.') {
-        integer = integer * 10 + (s[i] - '0');
-        i++;
-    }
+//     while (s[i] != '\0' && s[i] != '.') {
+//         integer = integer * 10 + (s[i] - '0');
+//         i++;
+//     }
     
-    if (s[i] == '.') {
-        i++;
-        while (s[i] != '\0') {
-            fraction = fraction * 10 + (s[i] - '0');
-            power *= 10;
-            i++;
-        }
-    }
+//     if (s[i] == '.') {
+//         i++;
+//         while (s[i] != '\0') {
+//             fraction = fraction * 10 + (s[i] - '0');
+//             power *= 10;
+//             i++;
+//         }
+//     }
     
-    return sign * (integer + fraction / power);
-}
+//     return sign * (integer + fraction / power);
+// }
 
 float av(float *arr, int n) {
     float sum = 0;
