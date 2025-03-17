@@ -186,6 +186,7 @@ UPROGS=\
 	_save\
 	_priority\
 	_seqcomp\
+	_parallelcomp\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
